@@ -1,7 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const workoutsRoutes = require('./routes/workoutsRoutes');
+const workoutRoutes = require('./routes/workoutRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 // Initialize the app
 const app = express();
@@ -21,8 +22,11 @@ app.get('/', (req, res) => {
   res.send('Hello to the app');
 });
 
-// Workouts Api request
-app.use('/api/workouts', workoutsRoutes);
+// Workouts Api requests
+app.use('/api/workouts', workoutRoutes);
+
+// Users Api requests
+app.use('/api/user', userRoutes);
 
 // Connect to MongoDB and listen to requests
 mongoose
